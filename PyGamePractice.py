@@ -1,4 +1,4 @@
-# PyGame Practice, Honesty Johnson, 11/29/21 9:21am, v0.5
+# PyGame Practice, Honesty Johnson, 11/29/21 9:26am, v0.6
 
 import pygame, sys
 from pygame.locals import *
@@ -31,3 +31,8 @@ windowSurface.fill(WHITE)
 
 #Draw a green polygon onto the surface.
 pygame.draw.polygon(windowSurface, GREEN, (( 146, 0), (291, 106), (236, 277), (56, 277), (0, 106))) 
+
+#Draw blue lines on the windowSurface.
+pygame.draw.line(windowSurface, BLUE, (60, 60), (120, 60), 4) 
+pygame.draw.line(windowSurface, BLUE, ( 120, 60), (60, 120))
+pygame.draw.line(windowSurface, BLUE, ( 60, 120), (120, 120), 4) 
