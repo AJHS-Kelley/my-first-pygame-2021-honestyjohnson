@@ -1,4 +1,4 @@
-# Simple Animation with PyGame, Honesty Johnson, 1/19/21, 9:22AM, v0.6
+# Simple Animation with PyGame, Honesty Johnson, 1/21/21, 8:35AM, v0.7
 
 import pygame, sys, time
 from pygame.locals import *
@@ -57,45 +57,22 @@ while True:
             if event.key == K_DOWN or event.key == K_s:
                 moveUp = False 
                 moveDown = True 
+        if event.type == KEYUP:
+            if event.key == K_ESCAPE:
+                pygame.quit()
+                sys.exit()
+            # Check to see if the player has stopped moving.
+            if event.key == K_LEFT or event.key == K_a:
+                moveLeft = False 
+            if event.key == K_RIGHT or event.key == K_d:
+                moveRight = False 
+            if event.key == K_UP or event.key == K_w:
+                moveUp = False 
+            if event.key == K_DOWN or event.key == K_s: 
+                moveDown = False 
+            if event.key == K_x: # Use x to teleport the player. 
+               player.top = random.randint(0, WINDOWHEIGHT - player.height)
+               player.left = random.randint(0, WINDOWWIDTH - player.width) 
 
 
-MOVESPEED = 4
-
-
-# Setup color values. 
-WHITE = (255, 255, 255)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255) 
-
-# Setup the box data. 
-b1 = {'rect':pygame.Rect(300, 80, 50, 100), 'color':RED, 'dir':UPRIGHT}
-b2 = {'rect':pygame.Rect(200, 200, 20, 20), 'color':GREEN, 'dir':UPLEFT}
-b3 = {'rect':pygame.Rect(100, 150, 60, 60), 'color':BLUE, 'dir':DOWNLEFT}
-boxes = [b1, b2, b3]
-
-# Run the game loop. 
-while True:
-    # Check for QUIT event.
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            pygame.quit()
-            sys.exit()
-
-    windowSurface.fill(WHITE)
-
-    for b in boxes:
-        # Change the keyboard variable 
-        if b['dir'] == DOWNLEFT:
-            b['rect'].left -= MOVESPEED
-            b['rect'].top += MOVESPEED
-            if b['dir'] == DONRIGHT:
-                b['rect'].left += MOVESPEED
-                b['rect'].top += MOVESPEED
-            if b['dir'] == UPLEFT:
-                b['rect'].left -= MOVESPEED
-                b['rect'].top -= MOVESPEED
-            if b['dir'] == UPRIGHT:
-                b['rect'].left += MOVESPEED
-                b['rect'].top -= MOVESPEED
 
