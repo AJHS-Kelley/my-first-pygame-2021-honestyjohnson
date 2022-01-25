@@ -1,4 +1,4 @@
-# Simple Animation with PyGame, Honesty Johnson, 1/21/21, 8:35AM, v0.7
+# Simple Animation with PyGame, Honesty Johnson, 1/25/21, 8:26AM, v0.8
 
 import pygame, sys, time
 from pygame.locals import *
@@ -73,6 +73,12 @@ while True:
             if event.key == K_x: # Use x to teleport the player. 
                player.top = random.randint(0, WINDOWHEIGHT - player.height)
                player.left = random.randint(0, WINDOWWIDTH - player.width) 
+
+        if event.type == MOUSEBUTTONUP:
+            foods.append(pygame.Rect(event.pos[0], event.pos[1]), FOODSIZE, FOODSIZE))
+
+
+               
 
 
 
